@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+    {% block title %} Portafolio {% endblock %}
+    {% block content %}
+    {% load static %}
+  {%for elemento in projects %}
+  <div class="row elemento">
+  <div class="col-lg-3 col-md-4 offset-lg-1">
+        <img class="img-fluid" src="{{elemento.image.url}}" alt="">
+  </div>
+  <div class="col-lg-7 col-md-8">
+      <h2 class="section-heading title">{{elemento.title}}</h2>
+      <p> {{elemento.description}}</p>
+      {% if elemento.link %}
+          <p><a href="{{elemento.link}}">Mas informacion</a></p>
+      {% endif %}  
+  </div>
+  </div>
+  {% endfor %}  
+
+{% endblock %}
